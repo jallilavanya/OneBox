@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "reachinbox-postman",
+    "_postman_id": "reachinbox-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/api/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add account",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \"accountId\":\"acc1\",\\n  \"host\":\"imap.example.com\",\\n  \"port\":993,\\n  \"secure\":true,\\n  \"username\":\"you@example.com\",\\n  \"password\":\"app-password\"\\n}"
+        }
+      }
+    },
+    {
+      "name": "Start account sync",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/accounts/start/acc1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "accounts",
+            "start",
+            "acc1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search emails",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/api/emails?q=interview",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "emails"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "interview"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add RAG doc",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \"namespace\":\"product\",\\n  \"docId\":\"prod1\",\\n  \"content\":\"If lead is interested, share booking link: https://cal.com/example\\nProduct: ReachInbox automates outreach...\"\\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/rag/docs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "rag",
+            "docs"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Suggest reply",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/rag/suggest/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "rag",
+            "suggest",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}
