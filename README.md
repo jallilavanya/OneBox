@@ -1,18 +1,20 @@
-# ReachInbox Assignment - Full Implementation Scaffold (RAG included)
+# vite ⚡
 
-This scaffold implements the full assignment features:
-1. Real-time IMAP sync (IDLE) for multiple accounts (using imapflow).
-2. Fetches last 30 days of emails on initial sync.
-3. Elasticsearch indexing (Docker Compose included).
-4. Postgres storage with `pgvector` support for embeddings.
-5. AI categorization using OpenAI (chat completions).
-6. Slack + webhook.site notifications for "Interested" emails.
-7. Frontend (React + Vite) for search, filtering, and labels.
-8. RAG-powered suggested replies using OpenAI embeddings + pgvector retrieval.
+> Next Generation Frontend Tooling
 
-**Important:** This is a scaffold with ready-to-run code. You still need to:
-- Run `docker-compose up -d` to start Elasticsearch and Postgres.
-- Install backend and frontend dependencies (`npm install` in each folder).
-- Create `.env` files with your credentials (OpenAI key, Slack webhook, webhook.site URL).
+- 💡 Instant Server Start
+- ⚡️ Lightning Fast HMR
+- 🛠️ Rich Features
+- 📦 Optimized Build
+- 🔩 Universal Plugin Interface
+- 🔑 Fully Typed APIs
 
-Preview the backend README at `backend/README.md` for full commands and Postman info.
+Vite (French word for "fast", pronounced `/vit/`) is a new breed of frontend build tool that significantly improves the frontend development experience. It consists of two major parts:
+
+- A dev server that serves your source files over [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), with [rich built-in features](https://vite.dev/guide/features.html) and astonishingly fast [Hot Module Replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement).
+
+- A [build command](https://vite.dev/guide/build.html) that bundles your code with [Rollup](https://rollupjs.org), pre-configured to output highly optimized static assets for production.
+
+In addition, Vite is highly extensible via its [Plugin API](https://vite.dev/guide/api-plugin.html) and [JavaScript API](https://vite.dev/guide/api-javascript.html) with full typing support.
+
+[Read the Docs to Learn More](https://vite.dev).
