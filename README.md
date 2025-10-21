@@ -1,20 +1,23 @@
-# vite ⚡
+# Backend README (Full)
 
-> Next Generation Frontend Tooling
+1. Start services:
+   - `docker-compose up -d` (from project root) to start Elasticsearch and Postgres.
+2. Prepare Postgres pgvector extension:
+   - Connect to Postgres (`psql`) and run: `CREATE EXTENSION IF NOT EXISTS vector;`
+3. Install & run backend:
+   - `cd backend && npm install`
+   - Copy `.env.example` to `.env` and fill values.
+   - `npm run dev`
 
-- 💡 Instant Server Start
-- ⚡️ Lightning Fast HMR
-- 🛠️ Rich Features
-- 📦 Optimized Build
-- 🔩 Universal Plugin Interface
-- 🔑 Fully Typed APIs
+Database schema automatically created on startup (accounts, emails, embeddings).
 
-Vite (French word for "fast", pronounced `/vit/`) is a new breed of frontend build tool that significantly improves the frontend development experience. It consists of two major parts:
+Key endpoints (Postman friendly):
+- POST /api/accounts            -- add account (body includes accountId, host, port, secure, username, password)
+- POST /api/accounts/start/:id  -- start IMAP sync for account
+- GET  /api/emails?q=&accountId=&folder=  -- search via Elasticsearch
+- GET  /api/emails/:id          -- get email from Postgres
+- POST /api/emails/:id/label    -- override label
+- POST /api/rag/docs            -- add product/outreach doc to vector DB
+- POST /api/rag/suggest/:emailId -- suggest reply for given email id using RAG
 
-- A dev server that serves your source files over [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), with [rich built-in features](https://vite.dev/guide/features.html) and astonishingly fast [Hot Module Replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement).
-
-- A [build command](https://vite.dev/guide/build.html) that bundles your code with [Rollup](https://rollupjs.org), pre-configured to output highly optimized static assets for production.
-
-In addition, Vite is highly extensible via its [Plugin API](https://vite.dev/guide/api-plugin.html) and [JavaScript API](https://vite.dev/guide/api-javascript.html) with full typing support.
-
-[Read the Docs to Learn More](https://vite.dev).
+See code for implementation details.
